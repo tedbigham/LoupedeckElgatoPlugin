@@ -22,6 +22,6 @@ Unzip into %LOCALAPPDATA%\Loupedeck\Plugins
 * Press dial to turn light on/off
 
 # Alternatives
-I couldn't these plug-ins to work, so I made my own.  Your luck might be better.
+I couldn't get these plug-ins to work, so I made my own.  Your luck might be better.
 * https://github.com/oddbear/Loupedeck.KeyLight.Plugin
 * https://help.xeroxdev.de/en/loupedeck/elgato-control/home
