@@ -12,7 +12,7 @@ Unzip into %LOCALAPPDATA%\Loupedeck\Plugins
 1. Select Elgato Plugin
 2. Add action
 3. Select device
-4. Enter device name
+4. Enter display name
 5. Click to create
 6. Click to expand dials
 7. Drag new action to dial
