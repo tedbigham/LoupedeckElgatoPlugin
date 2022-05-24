@@ -46,8 +46,15 @@ namespace Loupedeck.LoupedeckElgatoPlugin
             var a = e.Announcement;
             if (_devices.ContainsKey(a.Instance))
                 return;
-            
-            AddDevice(a);
+
+            try
+            {
+                AddDevice(a);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex.StackTrace);
+            }
         }
 
         private void AddDevice(ServiceAnnouncement a)
