@@ -1,0 +1,15 @@
+type: plugin4
+name: ElgatoLightControl
+displayName: Elgato Light Control
+version: 1.0.1
+author: Ted Bigham
+copyright: Copyright (c) 2022 Ted Bigham
+
+supportedDevices:
+    -  LoupedeckCtFamily
+
+pluginFileName: LoupedeckElgatoPlugin.dll
+
+pluginFolderWin: .
+
+pluginFolderMac: .

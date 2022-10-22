@@ -1,4 +1,5 @@
 using System;
+using System.Timers;
 
 namespace Loupedeck.LoupedeckElgatoPlugin
 {
@@ -9,6 +10,11 @@ namespace Loupedeck.LoupedeckElgatoPlugin
         
         // return the current value
         protected abstract String GetValue(ElgatoLight light);
+
+        // we wait until dials have stopped turning before updating
+        private Timer RemoteUpdateTimer;
+
+        private const int UPDATE_DELAY_MSEC = 400;
 
         protected LightAdjustmentBase(string title) : base(title, "", "", true)
         {
@@ -36,7 +42,7 @@ namespace Loupedeck.LoupedeckElgatoPlugin
                 AdjustValue(light, diff);
             }
 
-            ElgatoDeviceManager.Instance.UpdateRemote(device);
+            StartUpdateTimer(device);
             this.AdjustmentValueChanged();
             this.ActionImageChanged();
         }
@@ -58,6 +64,16 @@ namespace Loupedeck.LoupedeckElgatoPlugin
         protected override String GetAdjustmentValue(String actionParameter)
         {
             return GetValue(GetDevice(actionParameter).State.lights[0]);
+        }
+
+        private void StartUpdateTimer(ElgatoDevice device)
+        {
+            RemoteUpdateTimer?.Stop();
+            RemoteUpdateTimer?.Dispose();
+            RemoteUpdateTimer = new Timer(UPDATE_DELAY_MSEC);
+            RemoteUpdateTimer.AutoReset = false;
+            RemoteUpdateTimer.Elapsed += (sender, args) => ElgatoDeviceManager.Instance.UpdateRemote(device);
+            RemoteUpdateTimer.Start();
         }
     }
 }
