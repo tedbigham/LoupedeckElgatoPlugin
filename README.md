@@ -4,6 +4,10 @@ Control Elgato Key Light Air from Loupedeck
 ![Brightness](/images/brightness.jpg?raw=true "Brightness Adjustment")
 ![Color](/images/color.jpg?raw=true "Color Temperature Adjustment")
 
+# Prerequisite
+mDNS must be enabled.  Installing Bonjour is the typical way to enable it.
+* https://support.apple.com/kb/dl999
+
 # Install
 Unzip into %LOCALAPPDATA%\Loupedeck\Plugins
 
